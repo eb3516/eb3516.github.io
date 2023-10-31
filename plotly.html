@@ -11,7 +11,7 @@
 
 
 
-<title>Academic &amp; Professional Experience</title>
+<title>Plotly</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -350,31 +350,40 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Academic &amp; Professional Experience</h1>
+<h1 class="title toc-ignore">Plotly</h1>
 
 </div>
 
 
-<p><img src="hf.JPG" style="width:75%"></p>
-<div id="academic-experience" class="section level3">
-<h3>Academic Experience</h3>
-<p>Columbia University, Mailman School of Public Health<br />
-Master of Public Health: Health Policy &amp; Management, Certificate in
-Biostatistics</p>
-<p>Binghamton University, State University of New York, Harpur
-College<br />
-Bachelor of Arts: Economics, Bachelor of Arts: Political Science<br />
-Cum Laude, Presidential Scholar, Mary V. Faughnan Award Recipient</p>
-</div>
-<div id="professional-experience" class="section level3">
-<h3>Professional Experience</h3>
-<p>Fire Department of the City of New York<br />
-John D. Solomon Fellow</p>
-<p>Northwell Health Center for Emergency Medical Services<br />
-Emergency Medical Technician</p>
-<p>Elevance Health, Carelon Medical Benefits Management<br />
-Health Administration Intern</p>
-</div>
+<p>We’re going to look at NYC Restaurant Inspections data.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+## ✔ dplyr     1.1.3     ✔ readr     2.1.4
+## ✔ forcats   1.0.0     ✔ stringr   1.5.0
+## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<pre class="r"><code>library(p8105.datasets)
+library(plotly)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;
+## 
+## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot
+## 
+## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter
+## 
+## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout</code></pre>
+<pre class="r"><code>data(&quot;rest_inspec&quot;)</code></pre>
 
 
 
