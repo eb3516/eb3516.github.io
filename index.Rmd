@@ -10,12 +10,10 @@ output:
 
 ### Elizabeth (Liz) Bekerman is pursuing her MPH at Columbia University Mailman School of Public Health.
 She is currently taking P8105, Data Science 1, and this website is an assignment for that course.
-<br>
 
 ### Academic and Professional Experiences
 Liz has a diverse academic and professional background. For a more in depth overview of Liz's experiences, please see 
 [this page.](experience.html)
-<br>
 
 ### Professional links
 Learn more about Liz's work here:
