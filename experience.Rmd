@@ -1,10 +1,27 @@
 ---
-title: "Academic and Professional Experience"
+title: "Academic & Professional Experience"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# This page has my academic and professional experiences.
+<img src="hf.jpg" style="width:75%">
 
+### Academic Experience
+Columbia University, Mailman School of Public Health  
+Master of Public Health: Health Policy & Management, Certificate in Biostatistics
+
+Binghamton University, State University of New York, Harpur College  
+Bachelor of Arts: Economics, Bachelor of Arts: Political Science  
+Cum Laude, Presidential Scholar, Mary V. Faughnan Award Recipient
+
+### Professional Experience
+Fire Department of the City of New York  
+John D. Solomon Fellow
+
+Northwell Health Center for Emergency Medical Services  
+Emergency Medical Technician
+
+Elevance Health, Carelon Medical Benefits Management  
+Health Administration Intern
