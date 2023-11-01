@@ -12,28 +12,44 @@ We're going to look at NYC Restaurant Inspections data.
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
+library(dplyr)
+library(stringr)
 ```
 
+We're going to only look at data from Manhattan in Summer of 2017.
 ```{r}
 data("rest_inspec")
   rest_inspec = 
   rest_inspec %>%
-  select(boro, cuisine_description, inspection_date, violation_description, score, zipcode, grade) %>%
+  select(boro, cuisine_description, inspection_date, violation_description, score, grade) %>%
   filter(
     boro=="MANHATTAN",
-    inspection_date > '2017-01-01'
+    inspection_date > '2017-06-01:2017-09-22'
   ) %>%
-  drop_na(grade)
+  na.omit()
 ```
 
-#Boxplot
+# Scatterplot
 ```{r}
 rest_inspec |>
-  mutate(cuisine_description = fct_reorder(cuisine_description, score)) |>
+  plot_ly(
+    x= ~inspection_date, y= ~score, type= "scatter", mode=
+      "markers", color= ~grade, alpha=0.5)
+```
+
+# Boxplot
+```{r}
+rest_inspec |>
   plot_ly(y= ~score, color= ~cuisine_description, type = "box", colors = "viridis")
 ```
 
-
+# Barchart
+```{r}
+rest_inspec |>
+  count(cuisine_description) |>
+  mutate(cuisine_description = fct_reorder(cuisine_description, n)) |>
+  plot_ly(x = ~cuisine_description, y= ~n, color= ~cuisine_description, type = "bar", colors = "viridis")
+```
 
 
 
