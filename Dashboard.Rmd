@@ -1,5 +1,5 @@
 ---
-title: "Flex Dashboard"
+title: "Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -22,7 +22,9 @@ data("rest_inspec")
   select(boro, cuisine_description, inspection_date, violation_description, score, grade) %>%
   filter(
     boro=="MANHATTAN",
-    inspection_date > '2017-06-01:2017-09-22'
+    inspection_date > '2017-06-01:2017-09-22',
+    cuisine_description != "Bottled beverages, including water, sodas, juices, etc.",
+    cuisine_description != "Latin (Cuban, Dominican, Puerto Rican, South & Central American)"
   ) %>%
   na.omit()
 ```
@@ -30,7 +32,17 @@ data("rest_inspec")
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Scatterplot
+### Health Score by Cuisine
+
+```{r}
+rest_inspec |>
+  plot_ly(y= ~score, color= ~cuisine_description, type = "box", colors = "viridis")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Health Score and Grade over Time
 
 ```{r}
 rest_inspec |>
@@ -39,17 +51,7 @@ rest_inspec |>
       "markers", color= ~grade, alpha=0.5)
 ```
 
-Column {data-width=350}
------------------------------------------------------------------------
-
-### Boxplot
-
-```{r}
-rest_inspec |>
-  plot_ly(y= ~score, color= ~cuisine_description, type = "box", colors = "viridis")
-```
-
-### Barchart
+### Number of Inspections by Cuisine
 
 ```{r}
 rest_inspec |>
