@@ -1,23 +1,20 @@
 ---
-title: "Plotly"
+title: "Flex Dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
-We're going to look at NYC Restaurant Inspections data.
-
-```{r}
+```{r setup, include=FALSE}
+library(flexdashboard)
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
 library(dplyr)
 library(stringr)
-library(flexdashboard)
 ```
 
-We're going to only look at data from Manhattan in Summer of 2017.
 ```{r}
 data("rest_inspec")
   rest_inspec = 
@@ -30,7 +27,11 @@ data("rest_inspec")
   na.omit()
 ```
 
-# Scatterplot
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Scatterplot
+
 ```{r}
 rest_inspec |>
   plot_ly(
@@ -38,20 +39,22 @@ rest_inspec |>
       "markers", color= ~grade, alpha=0.5)
 ```
 
-# Boxplot
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Boxplot
+
 ```{r}
 rest_inspec |>
   plot_ly(y= ~score, color= ~cuisine_description, type = "box", colors = "viridis")
 ```
 
-# Barchart
+### Barchart
+
 ```{r}
 rest_inspec |>
   count(cuisine_description) |>
   mutate(cuisine_description = fct_reorder(cuisine_description, n)) |>
   plot_ly(x = ~cuisine_description, y= ~n, color= ~cuisine_description, type = "bar", colors = "viridis")
 ```
-
-
-
 
