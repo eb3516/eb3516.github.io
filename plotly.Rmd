@@ -16,7 +16,25 @@ library(plotly)
 
 ```{r}
 data("rest_inspec")
+  rest_inspec = 
+  rest_inspec %>%
+  select(boro, cuisine_description, inspection_date, violation_description, score, zipcode, grade) %>%
+  filter(
+    boro=="MANHATTAN",
+    inspection_date > '2017-01-01'
+  ) %>%
+  drop_na(grade)
 ```
+
+#Boxplot
+```{r}
+rest_inspec |>
+  mutate(cuisine_description = fct_reorder(cuisine_description, score)) |>
+  plot_ly(y= ~score, color= ~cuisine_description, type = "box", colors = "viridis")
+```
+
+
+
 
 
 
